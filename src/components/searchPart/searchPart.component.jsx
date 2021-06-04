@@ -4,11 +4,11 @@ import { Input, Button } from 'antd';
 
 export const SearchPart = () => {
       return (
-            <div>
-                  <Button>جستجو</Button>
-                  <Input placeholder='نام منطقه'></Input>
-                  <Input placeholder='نام رستوران'></Input>
-                  <Input placeholder='نام غذا'></Input>
+            <div className='search-fields'>
+                  <Input type="search" className='search-field' placeholder='نام غذا'></Input>
+                  <Input type="search" className='search-field' placeholder='نام رستوران'></Input>
+                  <Input type="search" className='search-field' placeholder='نام منطقه'></Input>
+                  <Button type="primary" shape="round" className='search-field' >جستجو</Button>
             </div>
       )
 }

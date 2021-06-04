@@ -1,8 +1,9 @@
 import './App.css';
+import 'antd/dist/antd.css';
 import { Component } from 'react';
 
 
-import {HomePage} from './components/homepage/homepage.component';
+import { HomePage } from './components/homepage/homepage.component';
 
 
 class App extends Component {
@@ -18,9 +19,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className='App-header'>
-        <HomePage></HomePage>
-      </div>
+      <HomePage></HomePage>
     )
   }
 

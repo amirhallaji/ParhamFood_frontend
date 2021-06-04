@@ -1,0 +1,11 @@
+.register-button {
+      background-color: #17202A;
+      height: 50px;
+      width: 150px;
+      margin-top: 25px;
+      margin-right: 10px;
+}
+
+.register-button:hover, ::after {
+      background-color: black;
+}

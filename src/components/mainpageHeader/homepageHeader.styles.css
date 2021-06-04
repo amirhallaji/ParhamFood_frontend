@@ -1,0 +1,8 @@
+.homepage-header {
+      background-color: #566573;
+      opacity: 0.5;
+      height: 100px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+}

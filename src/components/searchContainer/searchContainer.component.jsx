@@ -7,7 +7,7 @@ import { SearchTopicContainer } from '../searchTopicContainer/searchTopicContain
 
 export const SearchContainer = () => {
       return (
-            <div>
+            <div className='search-container'>
                   <SearchTopicContainer></SearchTopicContainer>
                   <SearchPart></SearchPart>
             </div>

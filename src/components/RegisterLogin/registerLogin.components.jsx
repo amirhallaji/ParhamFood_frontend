@@ -4,6 +4,6 @@ import {Button} from 'antd'
 
 export const RegisterLogin = () => {
       return (
-            <Button>ورود/عضویت</Button>
+            <Button type="primary" shape="round" className='register-button'> ورود/عضویت </Button>
       )
 }

@@ -6,7 +6,7 @@ import { RegisterLogin } from '../RegisterLogin/registerLogin.components';
 
 export const HomePageHeader = () => {
       return (
-            <div>                  
+            <div className='homepage-header'>                  
                   <TopicLeftHeader></TopicLeftHeader>
                   <RegisterLogin></RegisterLogin>
             </div>

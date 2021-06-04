@@ -1,0 +1,13 @@
+.search-field {
+      margin: 10px;
+      width: 150px;
+      height: 50px;
+      border-radius: 25px;
+      outline: none;
+      direction: rtl;
+}
+
+.search-fields {
+      display: flex;
+      flex-direction: column;
+}
