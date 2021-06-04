@@ -1,9 +1,13 @@
 import React from 'react';
 import './registerLogin.styles.css';
-import {Button} from 'antd'
+import { Button } from 'antd';
+import { Link } from 'react-router-dom';
 
 export const RegisterLogin = () => {
       return (
-            <Button type="primary" shape="round" className='register-button'> ورود/عضویت </Button>
+            <Link to="/register">
+                  <Button type="primary" shape="round" className='register-button'> ورود/عضویت </Button>
+            </Link>
       )
 }
+
