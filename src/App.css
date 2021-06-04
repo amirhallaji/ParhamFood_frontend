@@ -14,7 +14,11 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background: url('./images/foodback.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  /* background-color: #282c34; */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -35,4 +39,8 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+* {
+  box-sizing: border-box;
 }

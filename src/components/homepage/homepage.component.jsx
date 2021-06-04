@@ -6,7 +6,7 @@ import { HomePageHeader } from '../mainpageHeader/homepageHeader.component';
 
 export const HomePage = () => {
       return (
-            <div>
+            <div className='homepage'>
                   <HomePageHeader></HomePageHeader>
                   <SearchContainer></SearchContainer>
             </div>     
