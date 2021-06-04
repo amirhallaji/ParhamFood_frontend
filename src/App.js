@@ -4,6 +4,8 @@ import './App.css';
 import { Component } from 'react';
 import { render } from '@testing-library/react';
 
+import {HomePage} from './components/homepage/homepage.component';
+
 
 class App extends Component {
   constructor() {
@@ -18,7 +20,9 @@ class App extends Component {
 
   render() {
     return (
-      <div></div>
+      <div>
+        <HomePage></HomePage>
+      </div>
     )
   }
 
