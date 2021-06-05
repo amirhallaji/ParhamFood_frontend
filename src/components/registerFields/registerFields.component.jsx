@@ -18,9 +18,12 @@ export const RegisterFields = () => {
                               </div>
 
                               <div>
-                                    <div className='register-type-fields'>رمز عبور</div>
-                                    <div className='register-type-fields-explain' >باید متشکل از اعداد و حروف و حداقل ۸ کاراکتر باشد.</div>
-                                    <Input type="password" placeholder='password'></Input>
+                                    <div className='register-type-fields'>رمز عبور(متشکل از اعداد و حروف و حداقل ۸ کاراکتر)</div>
+                                    <Input type="password"  placeholder='password'></Input>
+                              </div>
+                              <div>
+                                    <div className='register-type-fields'>تأیید رمز عبور</div>
+                                    <Input type="password" placeholder='confirm password'></Input>
                               </div>
                         </div>
 
@@ -32,7 +35,7 @@ export const RegisterFields = () => {
 
                               <div>
                                     <div className='register-type-fields'>آدرس</div>
-                                    <Input type="text" placeholder='اینجا وارد کنید'></Input>
+                                    <Input className='input-style' type="text" placeholder='اینجا وارد کنید'></Input>
                               </div>
 
                               <div>

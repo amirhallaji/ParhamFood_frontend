@@ -10,36 +10,29 @@
       /* padding: 30px; */
 }
 
-
-
-.register-fields {
-      width: 50%;
-      margin-top: 30px;
-}
-
 .register-type-fields {
       font-size: 20px;
       color: aliceblue;
       margin-top: 10px;
+      
 }
 
-.register-type-fields-explain {
-      color: aliceblue;
-      font-size: 15px;
-}
 
 .register-fields-container {
       display: flex;
       flex-flow: row wrap;
-      justify-content: space-around;
+      justify-content:space-around;
       height: 80%;
+      width: 100%;
 }
 
 .register-fields-right {
-      
+      /* width: 40%; */
 }
 
-.register-fields-left {}
+.register-fields-left {
+      /* width: 60%; */
+}
 
 .button-register-container {
      text-align: center;
@@ -51,5 +44,9 @@
       width: 120px;
       height: 60px;
       font-size: 25px;
+}
+
+.input-style {
+      width: 400px;
 }
 
