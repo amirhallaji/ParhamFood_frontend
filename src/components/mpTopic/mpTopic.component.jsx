@@ -1,7 +1,7 @@
 import React from 'react';
-import './mpCenter.styles.css';
+import './mpTopic.styles.css';
 
-export const MpCenter = () => {
+export const MpTopic = () => {
       return (
             <div>
                   
