@@ -1,0 +1,20 @@
+.mp-topic {
+      /* display: flex;
+      flex-direction: column;
+      justify-content: space-between; */
+      direction: rtl;
+      text-align: right;
+}
+
+.mp-topic-fields {
+      display: flex;
+      flex-direction: row;
+      font-size: 25px;
+      direction: rtl;
+}
+
+.topic-table {
+      direction: rtl;
+      text-align: right;
+      opacity: 0.8;
+}

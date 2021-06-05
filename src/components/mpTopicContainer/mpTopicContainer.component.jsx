@@ -5,7 +5,7 @@ import { MpTopic } from '../mpTopic/mpTopic.component';
 
 export const MpTopicContainer = () => {
       return (
-            <div>
+            <div className='mp-topic-container'>
                   <MpTopic></MpTopic>
             </div>
       )
