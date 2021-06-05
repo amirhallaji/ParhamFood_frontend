@@ -1,4 +1,55 @@
+
+.total-register-fields {
+      height: 100%;
+      /* display: flex; */
+      /* margin: auto; */
+      /* flex-direction: row; */
+      /* justify-content: space-between; */
+      /* justify-content: center; */
+      /* align-items: center; */
+      /* padding: 30px; */
+}
+
+
+
 .register-fields {
       width: 50%;
-
+      margin-top: 30px;
 }
+
+.register-type-fields {
+      font-size: 20px;
+      color: aliceblue;
+      margin-top: 10px;
+}
+
+.register-type-fields-explain {
+      color: aliceblue;
+      font-size: 15px;
+}
+
+.register-fields-container {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-around;
+      height: 80%;
+}
+
+.register-fields-right {
+      
+}
+
+.register-fields-left {}
+
+.button-register-container {
+     text-align: center;
+     margin-bottom: 10%;
+      
+}
+
+.button-register {
+      width: 120px;
+      height: 60px;
+      font-size: 25px;
+}
+

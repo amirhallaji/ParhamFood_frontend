@@ -3,9 +3,13 @@
       background-color: #2C3E50;
       border-radius: 30px;
       opacity: 0.8;
-      width: 40%;
+      width: 60%;
       height: 90%;
-      display: flex;
+      display: grid-row;
+      grid-row: 1;
       flex-direction: column;
       margin: auto;
+      direction: rtl;
+      align-items: center;
+      
 }
