@@ -5,6 +5,8 @@ import { MpContainer } from '../mpContainer/mpContainer.component';
 
 export const ManagerPage = () => {
       return (
-            <MpContainer></MpContainer>
+            <div className='manager-page' style={{height:window.innerHeight}}>
+                  <MpContainer></MpContainer>
+            </div>
       )
 }
