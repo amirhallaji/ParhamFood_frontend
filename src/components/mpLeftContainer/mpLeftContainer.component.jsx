@@ -3,6 +3,8 @@ import './mpLeftContainer.styles.css';
 
 export const MpLeftContainer = () => {
       return (
-            <div></div>
+            <div className='mp-left-container'>
+                  سلام
+            </div>
       )
 }

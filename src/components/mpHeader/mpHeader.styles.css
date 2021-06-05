@@ -1,0 +1,10 @@
+.mp-header {
+      background-color:  #34495e;
+      height: 10%;
+      opacity: 0.8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 50px;
+      width: 100%;
+}

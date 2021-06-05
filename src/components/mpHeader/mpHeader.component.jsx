@@ -3,6 +3,8 @@ import './mpHeader.styles.css';
 
 export const MpHeader = () => {
       return (
-            <div></div>
+            <div className='mp-header'>
+                  پنل مدیریت
+            </div>
       )
 }

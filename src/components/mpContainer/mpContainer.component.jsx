@@ -8,8 +8,7 @@ import { MpHeader } from '../mpHeader/mpHeader.component';
 
 export const MpContainer = () => {
       return (
-            <div>
-                  <MpHeader></MpHeader>
+            <div className='mp-container'>
                   <MpLeftContainer></MpLeftContainer>
                   <MpCenterContainer></MpCenterContainer>
                   <MpRightContainer></MpRightContainer>

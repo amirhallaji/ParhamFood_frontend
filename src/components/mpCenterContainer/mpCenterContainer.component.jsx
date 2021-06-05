@@ -3,6 +3,8 @@ import './mpCenterContainer.styles.css';
 
 export const MpCenterContainer = () => {
       return (
-            <div></div>
+            <div className='mp-center'>
+
+            </div>
       )
 }
