@@ -1,8 +1,12 @@
 import React from 'react';
 import './registerPage.styles.css';
 
+import { RegisterPageContainer } from '../registerPageContainer/registerPageContainer.component';
+
 export const RegisterPage = () => {
       return (
-            <div>salam</div>
+            <div className='register-page' style={{height:window.innerHeight}}>
+                  <RegisterPageContainer></RegisterPageContainer>
+            </div>
       )
 }

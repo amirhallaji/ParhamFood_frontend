@@ -4,7 +4,7 @@ import { Component } from 'react';
 
 import { HomePage } from './components/homepage/homepage.component';
 import { RegisterPage } from './components/RegisterPage/registerPage.component';
-import { Main } from './routes';
+import { Route, Switch } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
@@ -19,8 +19,10 @@ class App extends Component {
   render() {
     return (
       <div>
-        
-        <Main />
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/register" component={RegisterPage} />
+        </Switch>
       </div>
     )
   }

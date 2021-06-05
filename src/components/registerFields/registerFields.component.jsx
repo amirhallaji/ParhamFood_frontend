@@ -3,7 +3,12 @@ import './registerFields.styles.css';
 import { Input } from 'antd';
 
 export const RegisterFields = () => {
-      return  (
-            <Input type="text">نام و نام خانوادگی</Input>
+      return (
+            <div className='register-fields'>
+                  <Input type="text" placeholder='نام'></Input>
+                  <Input type="text" placeholder='نام'></Input>
+                  <Input type="text" placeholder='نام'></Input>
+                  <Input type="text" placeholder='نام'></Input>
+            </div>
       )
 }
