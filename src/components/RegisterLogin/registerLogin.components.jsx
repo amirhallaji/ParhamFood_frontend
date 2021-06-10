@@ -35,7 +35,9 @@ export const RegisterLogin = () => {
                               </div>
                               <div className='modal-style-field'>
                               <div className='modal-buttons'>
+                                    <Link to='/user-register'>
                                           <Button type='primary' shape='round'>ثبت نام</Button>
+                                          </Link>
                                     </div>
                               </div>
                               

@@ -2,6 +2,7 @@ import React from 'react';
 import './userRegisterPageFields.styles.css';
 import './../registerFields/registerFields.styles.css';
 import { Input, Button } from 'antd';
+import { Link } from 'react-router-dom';
 
 export const UserRegisterPageFields = () => {
       return (
@@ -15,7 +16,7 @@ export const UserRegisterPageFields = () => {
 
                               <div>
                                     <div className='register-type-fields'>شماره موبایل</div>
-                                    <Input type="text" placeholder='+989123456789' style={{direction:'ltr'}}></Input>
+                                    <Input type="text" placeholder='+989123456789' style={{ direction: 'ltr' }}></Input>
                               </div>
 
                               <div>
@@ -43,7 +44,9 @@ export const UserRegisterPageFields = () => {
                   </div>
 
                   <div className='button-register-container'>
-                        <Button className='button-register' type="primary" shape="round">ثبت نام</Button>
+                        <Link to='/'>
+                              <Button className='button-register' type="primary" shape="round">ثبت نام</Button>
+                        </Link>
                   </div>
             </div>
       )
