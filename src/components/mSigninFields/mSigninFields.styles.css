@@ -1,0 +1,16 @@
+.msignin-fields-container {
+      width: 50%;
+      padding: 20px;
+}
+
+.msignin-fields{
+      color: white;
+      margin-top: 20px;
+}
+
+.msignin-buttons {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+}
+

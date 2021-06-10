@@ -7,6 +7,7 @@ import { RegisterPage } from './components/RegisterPage/registerPage.component';
 import { UserRegisterPage } from './components/userRegisterPage/userRegisterPage.component';
 import { Route, Switch } from 'react-router-dom';
 import { ManagerPage } from './components/managerPage/managerPage.component';
+import {ManagerSignin} from './components/managerSignin/managerSignin.component';
 
 class App extends Component {
   constructor() {
@@ -26,7 +27,7 @@ class App extends Component {
           <Route exact path="/manager-register" component={RegisterPage} />
           <Route exact path="/user-register" component={UserRegisterPage} />
           <Route exact path="/manager-dashboard" component={ManagerPage} />
-          <Route exact path='/manager-status'  />
+          <Route exact path='/manager-status' component={ManagerSignin} />
         </Switch>
       </div>
     )
