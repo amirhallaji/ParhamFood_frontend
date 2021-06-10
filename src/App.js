@@ -25,7 +25,8 @@ class App extends Component {
           <Route exact path="/" component={HomePage} />
           <Route exact path="/manager-register" component={RegisterPage} />
           <Route exact path="/user-register" component={UserRegisterPage} />
-          <Route exact path="/manager-panel" component={ManagerPage} />
+          <Route exact path="/manager-dashboard" component={ManagerPage} />
+          <Route exact path='/manager-status'  />
         </Switch>
       </div>
     )
