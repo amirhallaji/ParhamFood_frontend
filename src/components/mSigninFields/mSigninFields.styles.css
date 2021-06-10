@@ -6,7 +6,9 @@
 .msignin-fields{
       color: white;
       margin-top: 20px;
+      outline: none;
 }
+
 
 .msignin-buttons {
       display: flex;

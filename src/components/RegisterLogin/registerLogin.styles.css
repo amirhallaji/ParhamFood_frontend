@@ -9,3 +9,18 @@
 .register-button:hover, ::after {
       background-color: black;
 }
+
+.modal-style {
+      background-color: #85929E;
+      border-radius: 10px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+}
+
+.modal-style-field {
+      margin-top: 20px;
+}
