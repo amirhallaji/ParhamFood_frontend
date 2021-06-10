@@ -38,16 +38,18 @@ export const UserRegisterPageFields = () => {
       let region;
       let address;
 
+      var dict = {
+            phone_number : null,    
+            password     : null,  
+            name         : null,
+            region       : null,    
+            address      : null
+      };
+
       const submit_form = () => {
-            var json = {
-                  "phone_number": phone_number,   
-                  "password"    : password,
-                  "name"        : name,
-                  "region"      : region,
-                  "address"     : address
-            };
+            var json = JSON.stringify(dict);
             socket.emit('create user', json);
-            console.log(json);
+            alert('hi');
       }
       
       return (
@@ -59,6 +61,7 @@ export const UserRegisterPageFields = () => {
                                     <div className='register-type-fields'>نام و نام خانوادگی</div>
                                     <Input type="text" placeholder='اینجا وارد کنید' name="userName" onChange={(e) => {
                                           name = e.target.value;
+                                          dict.name = name;
                                     }}></Input>
                               </div>
 
@@ -66,6 +69,7 @@ export const UserRegisterPageFields = () => {
                                     <div className='register-type-fields'>شماره موبایل</div>
                                     <Input type="text" placeholder='+989123456789' name="userPhoneNumber" style={{ direction: 'ltr' }} onChange={(e) => {
                                           phone_number = e.target.value;
+                                          dict.phone_number = phone_number;
                                     }}></Input>
                               </div>
 
@@ -73,6 +77,7 @@ export const UserRegisterPageFields = () => {
                                     <div className='register-type-fields'>رمز عبور(متشکل از اعداد و حروف و حداقل ۸ کاراکتر)</div>
                                     <Input type="password" placeholder='password' name="userPassword" onChange={(e) => {
                                           password = e.target.value;
+                                          dict.password = password;
                                     }}></Input>
                               </div>
                               <div>
@@ -88,6 +93,7 @@ export const UserRegisterPageFields = () => {
                                     <div className='register-type-fields'>آدرس</div>
                                     <Input type="text" placeholder='اینجا وارد کنید' name="userAddress" onChange={(e) => {
                                           address = e.target.value;
+                                          dict.address = address;
                                     }}></Input>
                               </div>
 
@@ -95,6 +101,7 @@ export const UserRegisterPageFields = () => {
                                     <div className='register-type-fields'>منطقه</div>
                                     <Input className='input-style' type="text" placeholder='اینجا وارد کنید' name="userRegion" onChange={(e) => {
                                           region = e.target.value;
+                                          dict.region = region;
                                     }}></Input>
                               </div>
                         </div>
