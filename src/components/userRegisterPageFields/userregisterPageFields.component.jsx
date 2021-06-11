@@ -39,7 +39,7 @@ export const UserRegisterPageFields = () => {
                               <div>
                                     {/* <div className='register-type-fields'>نام و نام خانوادگی</div> */}
                                     <div className='register-type-fields'>نام و نام خانوادگی</div>
-                                    <Input type="text" placeholder='اینجا وارد کنید'></Input>
+                                    <Input type="text" placeholder='اینجا وارد کنید' ></Input>
                               </div>
 
                               <div>
