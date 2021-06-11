@@ -59,14 +59,10 @@ export const UserRegisterPageFields = () => {
                               <div>
                                     {/* <div className='register-type-fields'>نام و نام خانوادگی</div> */}
                                     <div className='register-type-fields'>نام و نام خانوادگی</div>
-<<<<<<< HEAD
-                                    <Input type="text" placeholder='اینجا وارد کنید' ></Input>
-=======
                                     <Input type="text" placeholder='اینجا وارد کنید' name="userName" onChange={(e) => {
                                           name = e.target.value;
                                           dict.name = name;
                                     }}></Input>
->>>>>>> 75dfd2080a5319b08854e696fd578e4200e91958
                               </div>
 
                               <div>
