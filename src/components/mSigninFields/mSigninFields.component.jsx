@@ -2,6 +2,7 @@ import React from 'react';
 import './mSigninFields.styles.css';
 
 import { Input, Button } from 'antd';
+import { Link } from 'react-router-dom';
 
 export const MsigninFields = () => {
       return (
@@ -17,9 +18,13 @@ export const MsigninFields = () => {
                   </div>
 
                   <div className='msignin-fields'>
-                        <div className='msignin-buttons'>                        
-                              <Button type='primary' shape='round'>ورود</Button>
-                              <Button type='primary' shape='round'>ثبت نام</Button>
+                        <div className='msignin-buttons'>
+                              <Link to='/manager-dashboard'>
+                                    <Button type='primary' shape='round'>ورود</Button>
+                              </Link>
+                              <Link to='manager-register'>
+                                    <Button type='primary' shape='round'>ثبت نام</Button>
+                              </Link>
                         </div>
                   </div>
             </div>
