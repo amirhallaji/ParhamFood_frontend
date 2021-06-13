@@ -6,7 +6,7 @@ import { MpHeader } from '../mpHeader/mpHeader.component';
 
 export const ManagerPage = () => {
       return (
-            <div className='manager-page' style={{height:window.innerHeight}}>
+            <div className='manager-page' style={{minHeight:window.innerHeight}}>
                   <MpHeader></MpHeader>
                   <MpContainer></MpContainer>
             </div>

@@ -1,5 +1,5 @@
 // import React from 'react';
-// import './mpCenter.styles.css';// 
+import './mpCenter.styles.css';// 
 // import { useContext, useState, useEffect, useRef } from 'react';
 // import { Table, Input, Button, Popconfirm, Form } from 'antd';
 // const EditableContext = React.createContext(null);
@@ -17,7 +17,7 @@ const EditableRow = ({ index, ...props }) => {
   const [form] = Form.useForm();
   return (
     <Form form={form} component={false}>
-      <EditableContext.Provider value={form}>
+      <EditableContext.Provider  value={form}>
         <tr {...props} />
       </EditableContext.Provider>
     </Form>
@@ -71,7 +71,7 @@ const EditableCell = ({
         rules={[
           {
             required: true,
-            message: `${title} is required.`,
+            message: `.${title}  نمی‌تواند خالی باشد`,
           },
         ]}
       >
@@ -98,26 +98,33 @@ class EditableTable extends React.Component {
     super(props);
     this.columns = [
       {
-        title: 'name',
+        title: 'نام غذا',
         dataIndex: 'name',
         width: '30%',
         editable: true,
       },
       {
-        title: 'age',
-        dataIndex: 'age',
+        title: 'قیمت غذا',
+        dataIndex: 'price',
+        editable: true,
       },
       {
-        title: 'address',
-        dataIndex: 'address',
+        title: 'غیر فعال کردن سفارش',
+        dataIndex: 'deactive',
+        render: (_, record) =>
+          this.state.dataSource.length >= 1 ? (
+            <Popconfirm title="آیا از حذف غذا اطمینان دارید؟" onConfirm={() => this.handleDelete(record.key)}>
+              <a>غیر فعال کردن سفارش</a>
+            </Popconfirm>
+          ) : null,
       },
       {
-        title: 'operation',
+        title: 'عملیات',
         dataIndex: 'operation',
         render: (_, record) =>
           this.state.dataSource.length >= 1 ? (
-            <Popconfirm title="Sure to delete?" onConfirm={() => this.handleDelete(record.key)}>
-              <a>Delete</a>
+            <Popconfirm title="آیا از حذف غذا اطمینان دارید؟" onConfirm={() => this.handleDelete(record.key)}>
+              <a>حذف غذا</a>
             </Popconfirm>
           ) : null,
       },
@@ -126,14 +133,14 @@ class EditableTable extends React.Component {
       dataSource: [
         {
           key: '0',
-          name: 'Edward King 0',
-          age: '32',
+          name:  'کباب کوبیده',
+          price: '42000',
           address: 'London, Park Lane no. 0',
         },
         {
           key: '1',
-          name: 'Edward King 1',
-          age: '32',
+          name: 'سوسیس بندری',
+          price: '10000',
           address: 'London, Park Lane no. 1',
         },
       ],
@@ -151,8 +158,8 @@ class EditableTable extends React.Component {
     const { count, dataSource } = this.state;
     const newData = {
       key: count,
-      name: `Edward King ${count}`,
-      age: '32',
+      name: `Food name ${count}`,
+      price: '50000',
       address: `London, Park Lane no. ${count}`,
     };
     this.setState({
@@ -203,7 +210,7 @@ class EditableTable extends React.Component {
             marginBottom: 16,
           }}
         >
-          Add a row
+          اضافه کردن غذا
         </Button>
         <Table
           components={components}
