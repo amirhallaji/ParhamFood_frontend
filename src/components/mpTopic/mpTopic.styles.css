@@ -13,8 +13,8 @@
       direction: rtl;
 }
 
-.topic-table {
+.footer-table {
       direction: rtl;
       text-align: right;
-      opacity: 0.8;
+      opacity: 1;
 }

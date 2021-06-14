@@ -1,0 +1,13 @@
+#managerFoods {
+      width: 80%;
+      margin: 0 auto;
+      direction: rtl;
+}
+
+#managerFoods .ant-table-cell {
+      text-align: right;
+}
+
+#managerFoods .ant-table-container::before, #managerFoods .ant-table-container::after {
+      content: none;
+}

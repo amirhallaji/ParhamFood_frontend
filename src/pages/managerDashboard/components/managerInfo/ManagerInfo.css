@@ -1,0 +1,15 @@
+#managerInfo {
+      width: 80%;
+      margin: 20px auto 50px;
+}
+
+#managerInfoDetails {
+      background-color: #fff;
+      margin-bottom: 20px;
+}
+
+#managerInfo .ant-btn {
+      display: block;
+      margin: 0 auto;
+}
+
