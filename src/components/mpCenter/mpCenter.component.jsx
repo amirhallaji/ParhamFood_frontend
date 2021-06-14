@@ -90,32 +90,46 @@ class EditableTable extends React.Component {
       {
         title: 'نام غذا',
         dataIndex: 'name',
-        width: '30%',
+        width: '15%',
         editable: true,
       },
       {
         title: 'قیمت غذا',
         dataIndex: 'price',
+        width:'10%',
         editable: true,
       },
       {
-        title: 'غیر فعال کردن سفارش',
+        title: 'فعال/غیرفعال',
+        width:'10%',
         dataIndex: 'deactive',
         render: (_, record) =>
           this.state.dataSource.length >= 1 ? (
-            <Popconfirm title="آیا از حذف غذا اطمینان دارید؟" onConfirm={() => this.handleDelete(record.key)}>
-              <a>غیر فعال کردن سفارش</a>
-            </Popconfirm>
+            <div onClick={{}}>
+              غیر فعال
+            </div>
           ) : null,
       },
       {
         title: 'عملیات',
         dataIndex: 'operation',
+        width:'10%',
         render: (_, record) =>
           this.state.dataSource.length >= 1 ? (
             <Popconfirm title="آیا از حذف غذا اطمینان دارید؟" onConfirm={() => this.handleDelete(record.key)}>
               <a>حذف غذا</a>
             </Popconfirm>
+          ) : null,
+      },
+      {
+        title: 'مشاهده نظرات',
+        dataIndex: 'comments',
+        width:'10%',
+        render: (_, record) =>
+          this.state.dataSource.length >= 1 ? (
+            <div onClick={() => {console.log()}} style={{cursor:'pointer', color:'blue'} } >
+              مشاهده‌ی نظرات
+            </div>
           ) : null,
       },
     ];

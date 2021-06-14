@@ -19,7 +19,7 @@ export const RegisterLogin = () => {
                               </div>
                               <div className='modal-style-field'>
                                     <div style={{ direction: 'rtl', color: 'white' }}>شماره موبایل</div>
-                                    <Input type='number' placeholder='+989384158428'></Input>
+                                    <Input type='tel' placeholder='+989384158428'></Input>
                               </div>
                               <div className='modal-style-field'>
                                     <div style={{ direction: 'rtl', color: 'white' }}>رمز عبور</div>

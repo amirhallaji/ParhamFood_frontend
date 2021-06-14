@@ -6,6 +6,7 @@ import { SearchTopicContainer } from '../searchTopicContainer/searchTopicContain
 
 
 export const SearchContainer = () => {
+      
       return (
             <div className='search-container'>
                   <SearchTopicContainer></SearchTopicContainer>
