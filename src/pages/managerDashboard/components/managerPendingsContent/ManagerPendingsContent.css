@@ -1,0 +1,23 @@
+#managerPendingsContent {
+      direction: rtl;
+}
+
+.managerPendingsContentRow {
+      display: flex;
+      border-bottom: 1px solid gray;
+}
+
+.managerPendingsContentRow div {
+      width: calc(100% / 3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-left: 1px solid gray;
+      padding: 10px 0;
+
+}
+
+.managerPendingsContentRow div:last-of-type {
+      border-left: none;
+}
+

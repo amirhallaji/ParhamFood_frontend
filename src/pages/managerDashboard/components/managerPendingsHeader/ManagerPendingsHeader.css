@@ -1,0 +1,21 @@
+#managerPendingsHeader {
+      border-bottom: 1px solid gray;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      direction: rtl;
+      font-weight: bold;
+}
+
+#managerPendingsHeader div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 0;
+      border-left: 1px solid gray;
+      width: calc(100% / 3);
+}
+
+#managerPendingsHeader div:last-of-type {
+      border-left: none;
+}
