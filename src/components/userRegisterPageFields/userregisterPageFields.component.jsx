@@ -4,7 +4,7 @@ import './../registerFields/registerFields.styles.css';
 import { Input, Button, message } from 'antd';
 import { Link } from 'react-router-dom';
 import socketIOClient from "socket.io-client";
-const ENDPOINT = "http://127.0.0.1:4002";
+const ENDPOINT = "http://127.0.0.1:4001";
 const socket = socketIOClient(ENDPOINT);
 
 export const UserRegisterPageFields = () => {
@@ -112,12 +112,12 @@ export const UserRegisterPageFields = () => {
                         <Link to='/'>
                               <Button id="button_id_user" className='button-register' type="primary" shape="round" onClick={() => {
                                     var json = JSON.stringify(dict);
-                                    // socket.emit('create user', json);
-                                    console.log('message is being sent...')
-                                    alert('message is being sent...')
-                                    socket.emit('test_server');
-                                    console.log('message sent')
-                                    alert('message sent')
+                                    socket.emit('create user', json);
+                                    // console.log('message is being sent...')
+                                    // alert('message is being sent...')
+                                    // socket.emit('test_server');
+                                    // console.log('message sent')
+                                    // alert('message sent')
                               }}
                               >ثبت نام</Button>
                         </Link>

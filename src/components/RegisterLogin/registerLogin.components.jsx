@@ -4,7 +4,7 @@ import { Button, Modal, Input } from 'antd';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import socketIOClient from "socket.io-client";
-const ENDPOINT = "http://127.0.0.1:4002";
+const ENDPOINT = "http://127.0.0.1:4001";
 const socket = socketIOClient(ENDPOINT);
 
 let executed = false;
@@ -16,49 +16,54 @@ export const RegisterLogin = () => {
 
       const [usernameVisible, setUsernameVisible] = useState(false);
 
-      var giveMeUserName = (function () {
-            return function () {
-                  if (!executed) {
-                        executed = true;
-                        alert('name asked!')
-                        socket.emit('give me user name');
-                  }
-            };
-      })();
-
-      giveMeUserName()      
-      // giveMeUserName()      
-
-      const [username, setUsername] = useState("");
-
-      // let getUserName = (function () {
+      // var giveMeUserName = (function () {
       //       return function () {
-      //             if (!executed2) {
-      //                   executed2 = true;
-      //                   socket.on('get user name', msg => {
-      //                         setUsername([...username], msg)
-      //                         console.log("username : ", username)
-      //                   });
+      //             if (!executed) {
+      //                   executed = true;
+      //                   // alert('name asked!')
+      //                   socket.emit('give me user name');
       //             }
       //       };
       // })();
 
-      // getUserName()
-      // getUserName()
+      // giveMeUserName()      
+      // // giveMeUserName()      
+
+
+      
+      var giveMeUserInformation = (function () {
+            return function () {
+                  if (!executed) {
+                        executed = true;
+                        // alert('name asked!')
+                        socket.emit('give me user information');
+                  }
+            };
+      })();
+
+      giveMeUserInformation()  
+
+      const [username, setUsername] = useState("");
 
       useEffect(() => {
-            socket.on('get user name', data => {
+            socket.on('get user information', data => {
+                  setUsername(data);
                   // setResponse(data);
-                  alert('name received')
-                  alert(data)
-                  console.log('username : ', data);
+                  // alert('name received')
+                  // alert(data)
+                  console.log('json : ', data);
             });
-      }, []);
+      }, [setUsername]);
 
       return (
             <div>
-                  <Button type="primary" shape="round" className='register-button' onClick={() => { setVisible(true) }}> ورود/عضویت </Button>
-                  <Modal className='modal' visible={visible} footer={null} onCancel={() => setVisible(false)}>
+                  {username == '' ? (
+                  <Button type="primary" shape="round" className='register-button' onClick={() => { setVisible(true) }}> ورود/عضویت </Button> ):
+                  ( 
+                        <div>{username}</div>
+                  ) }
+                  <Modal className='modal' visible={visible} footer={null} onCancel={() => setVisible(false)}> 
+
 
                         <div className='modal-style'>
                               <div style={{ fontSize: '40px' }}>
