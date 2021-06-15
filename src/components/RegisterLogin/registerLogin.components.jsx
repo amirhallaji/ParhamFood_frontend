@@ -4,7 +4,7 @@ import { Button, Modal, Input } from 'antd';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import socketIOClient from "socket.io-client";
-const ENDPOINT = "http://127.0.0.1:4001";
+const ENDPOINT = "http://127.0.0.1:4002";
 const socket = socketIOClient(ENDPOINT);
 
 let executed = false;
@@ -20,6 +20,7 @@ export const RegisterLogin = () => {
             return function () {
                   if (!executed) {
                         executed = true;
+                        alert('name asked!')
                         socket.emit('give me user name');
                   }
             };
@@ -48,6 +49,8 @@ export const RegisterLogin = () => {
       useEffect(() => {
             socket.on('get user name', data => {
                   // setResponse(data);
+                  alert('name received')
+                  alert(data)
                   console.log('username : ', data);
             });
       }, []);

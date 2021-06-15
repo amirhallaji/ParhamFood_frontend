@@ -4,30 +4,36 @@ import './../registerFields/registerFields.styles.css';
 import { Input, Button, message } from 'antd';
 import { Link } from 'react-router-dom';
 import socketIOClient from "socket.io-client";
-const ENDPOINT = "http://127.0.0.1:4001";
+const ENDPOINT = "http://127.0.0.1:4002";
 const socket = socketIOClient(ENDPOINT);
 
 export const UserRegisterPageFields = () => {
       const [response, setResponse] = useState("");
-      const [message, setMessage] = useState("");
+      const [message, setMessage] = useState("hello bitch!");
       const [messages, setMessages] = useState("");
 
       useEffect(() => {
             getMessages();
-      }, [message.length]);
+      }, [messages.length]);
 
       const getMessages = () => {
             socket.on("message", msg => {
-                  setMessages([...message, msg]);
+                  setMessages([...messages, msg]);
                   setMessage(msg)
-                  console.log(message);
+                  console.log('message received in message')
+                  alert('message received in message')
+                  console.log(msg);
+                  alert(msg);
             });
       };
 
       useEffect(() => {
             socket.on("test_client", data => {
                   setResponse(data);
-                  console.log(response);
+                  console.log('message received in test_client')
+                  alert('message received in test_client')
+                  console.log(data);
+                  alert(data);
             });
       }, []);
 
@@ -106,8 +112,12 @@ export const UserRegisterPageFields = () => {
                         <Link to='/'>
                               <Button id="button_id_user" className='button-register' type="primary" shape="round" onClick={() => {
                                     var json = JSON.stringify(dict);
-                                    socket.emit('create user', json);
+                                    // socket.emit('create user', json);
+                                    console.log('message is being sent...')
+                                    alert('message is being sent...')
                                     socket.emit('test_server');
+                                    console.log('message sent')
+                                    alert('message sent')
                               }}
                               >ثبت نام</Button>
                         </Link>
