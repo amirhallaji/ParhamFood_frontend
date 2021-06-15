@@ -132,7 +132,7 @@ class ManagerFoods extends React.Component {
         width:'10%',
         render: (_, record) =>
           this.state.dataSource.length >= 1 ? (
-            <div onClick={() => {console.log()}} style={{cursor:'pointer', color:'blue'} } >
+            <div onClick={() => {props.setIsCommentsVisible(true)}} style={{cursor:'pointer', color:'blue'} } >
               مشاهده‌ی نظرات
             </div>
           ) : null,
