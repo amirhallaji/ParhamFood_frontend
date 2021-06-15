@@ -25,10 +25,10 @@ export const UserRegisterPageFields = () => {
       };
 
       useEffect(() => {
-      socket.on("test_client", data => {
-            setResponse(data);
-            console.log(response);
-      });
+            socket.on("test_client", data => {
+                  setResponse(data);
+                  console.log(response);
+            });
       }, []);
 
       let name;
@@ -39,19 +39,13 @@ export const UserRegisterPageFields = () => {
       let address;
 
       var dict = {
-            phone_number : null,    
-            password     : null,  
-            name         : null,
-            region       : null,    
-            address      : null
+            phone_number: null,
+            password: null,
+            name: null,
+            region: null,
+            address: null
       };
 
-      const submit_form = () => {
-            var json = JSON.stringify(dict);
-            socket.emit('create user', json);
-            alert('hi');
-      }
-      
       return (
             <div className='total-register-fields'>
                   <div className='register-fields-container'>
@@ -110,7 +104,12 @@ export const UserRegisterPageFields = () => {
 
                   <div className='button-register-container'>
                         <Link to='/'>
-                              <Button id="button_id_user" className='button-register' type="primary" shape="round" onClick={submit_form()}>ثبت نام</Button>
+                              <Button id="button_id_user" className='button-register' type="primary" shape="round" onClick={() => {
+                                    var json = JSON.stringify(dict);
+                                    socket.emit('create user', json);
+                                    socket.emit('test_server');
+                              }}
+                              >ثبت نام</Button>
                         </Link>
                   </div>
             </div>
