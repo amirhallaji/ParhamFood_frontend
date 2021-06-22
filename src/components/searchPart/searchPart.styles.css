@@ -11,3 +11,12 @@
       display: flex;
       flex-direction: column;
 }
+
+@media screen and (max-width: 800px) {
+      .search-field {
+            display: flex;
+      }
+      .search-fields {
+            width: 80%;
+      }
+}

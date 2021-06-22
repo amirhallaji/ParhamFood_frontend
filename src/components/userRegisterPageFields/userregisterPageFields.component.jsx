@@ -87,7 +87,7 @@ export const UserRegisterPageFields = () => {
                         <div className='register-fields-left'>
                               <div>
                                     <div className='register-type-fields'>آدرس</div>
-                                    <Input type="text" placeholder='اینجا وارد کنید' name="userAddress" onChange={(e) => {
+                                    <Input type="text" className='input-style' placeholder='اینجا وارد کنید' name="userAddress" onChange={(e) => {
                                           address = e.target.value;
                                           dict.address = address;
                                     }}></Input>

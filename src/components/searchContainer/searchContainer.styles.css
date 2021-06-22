@@ -12,6 +12,14 @@
       padding: 20px;
 }
 
-@media screen  {
-      
+@media screen and (max-width: 800px) {
+    .search-container {
+          width: 50%;
+          display: flex;
+          margin: auto;
+          flex-flow: column;
+          justify-content: center;
+          align-items: center;
+    }
+
 }
