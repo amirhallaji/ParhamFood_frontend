@@ -10,24 +10,27 @@ const socket = socketIOClient(ENDPOINT);
 let executed = false;
 let executed2 = false;
 
+let userNameShown = null;
+
 export const RegisterLogin = () => {
 
       const [visible, setVisible] = useState(false);
 
+
       const [usernameVisible, setUsernameVisible] = useState(false);
 
-      // var giveMeUserName = (function () {
-      //       return function () {
-      //             if (!executed) {
-      //                   executed = true;
-      //                   // alert('name asked!')
-      //                   socket.emit('give me user name');
-      //             }
-      //       };
-      // })();
+      var giveMeUserName = (function () {
+            return function () {
+                  if (!executed) {
+                        executed = true;
+                        // alert('name asked!')
+                        socket.emit('give me user name');
+                  }
+            };
+      })();
 
+      giveMeUserName()      
       // giveMeUserName()      
-      // // giveMeUserName()      
 
 
       

@@ -1,0 +1,87 @@
+.search-result {
+      background-image: url('../../images/managerpanel.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+}
+
+* {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+}
+
+.products {
+      width: 100%;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+}
+
+.product {
+      background-color:cornflowerblue;
+      text-align: center;
+      border-radius: 10px;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+      margin-left: 20px;
+      margin-right: 20px;
+      padding: 10px;
+}
+
+.product img {
+      width: 200px;
+      max-width: 100%;
+      border-radius: 15px;
+}
+
+.product a {
+      background-color:cadetblue;
+      padding: 5px 15px;
+      text-decoration: none;
+      cursor: pointer;
+      color: black;
+      font-size: 12px;
+      min-width: 100px;
+      text-align: center;
+      border-radius: 20px;
+}
+
+.product h2 {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      color: black;   
+      font-size: 18px;
+}
+
+.button-purchase {
+      background-color: orange;
+}
+
+
+.button-purchase:hover{
+      background-color: black;
+}
+@media screen and (min-width: 0px) {
+      .product {
+            width: calc(100%);
+      }
+}
+
+@media screen and (min-width: 650px) {
+      .product {
+            width: calc(50% - 2* 20px);
+      }
+}
+
+@media screen and (min-width: 850px) {
+      .product {
+            width: calc(33% - 2 * 20px);
+      }
+}
+
+@media screen and (min-width: 1200px) {
+      .product {
+            width: calc(25% - 3 * 20px);
+      }
+}
