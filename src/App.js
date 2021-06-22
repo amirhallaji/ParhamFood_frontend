@@ -7,9 +7,10 @@ import { RegisterPage } from './components/RegisterPage/registerPage.component';
 import { UserRegisterPage } from './components/userRegisterPage/userRegisterPage.component';
 import { Route, Switch } from 'react-router-dom';
 // import { ManagerPage } from './components/managerPage/managerPage.component';
-import {ManagerSignin} from './components/managerSignin/managerSignin.component';
+import { ManagerSignin } from './components/managerSignin/managerSignin.component';
 import ManagerDashboard from './pages/managerDashboard/ManagerDashboard'
-import {SearchResult } from './components/searchResult/SearchResult';
+import { SearchResult } from './components/searchResult/SearchResult';
+import { Comments } from './pages/managerDashboard/components/comments/Comments';
 
 class App extends Component {
   constructor() {
@@ -30,7 +31,8 @@ class App extends Component {
           <Route exact path="/user-register" component={UserRegisterPage} />
           <Route exact path="/manager-dashboard" component={ManagerDashboard} />
           <Route exact path='/manager-status' component={ManagerSignin} />
-          <Route exact path='/search-result' component={SearchResult}/>
+          <Route exact path='/search-result' component={SearchResult} />
+          <Route exact path='/comments' component={Comments} />
         </Switch>
       </div>
     )

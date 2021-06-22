@@ -1,0 +1,28 @@
+#commentsInfo {
+      direction: rtl;
+}
+
+.commentsInfoRow {
+      display: flex;
+      border-bottom: 1px solid gray;
+      width: 100%;
+      
+}
+
+.commentsInfoRow div {
+      width: calc(100% / 3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-left: 1px solid gray;
+      padding: 10px 0;
+      background-color: #fff;
+      /* width: 80%; */
+
+
+}
+
+.commentsInfoRow div:last-of-type {
+      border-left: none;
+}
+
