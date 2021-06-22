@@ -92,6 +92,8 @@ const EditableCell = ({
 class ManagerFoods extends React.Component {
   constructor(props) {
     super(props);
+
+
     this.columns = [
       {
         title: 'نام غذا',
@@ -128,14 +130,12 @@ class ManagerFoods extends React.Component {
           ) : null,
       },
       {
-        title: 'مشاهده نظرات',
-        dataIndex: 'comments',
+        title: 'ثبت غذا',
+        dataIndex: 'confirmFood',
         width: '10%',
         render: (_, record) =>
           this.state.dataSource.length >= 1 ? (
-            <Switch to='/comments'>
-            <Button>مشاهده نظرات</Button>
-            </Switch>
+            <Button onClick={() => this.submitFood(record)}>ثبت غذا</Button>
           ) : null,
       },
     ];
@@ -157,6 +157,23 @@ class ManagerFoods extends React.Component {
       count: 2,
     };
   }
+
+
+  submitFood = async (food) => {
+    try {
+      await fetch('sample', {
+        body: {},
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        }
+      }).then((response) => response.json()).then((data) => console.log(data)); // addfood API
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+
 
   handleDelete = (key) => {
     const dataSource = [...this.state.dataSource];
@@ -190,6 +207,8 @@ class ManagerFoods extends React.Component {
   };
 
   render() {
+
+
     const { dataSource } = this.state;
     const components = {
       body: {
