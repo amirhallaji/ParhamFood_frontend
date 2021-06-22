@@ -1,0 +1,15 @@
+#editProfile {
+      background-image: url('../../../../images//managerpanel.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      direction: rtl;
+}
+
+.editProfileFields {
+      width: 40%;
+}

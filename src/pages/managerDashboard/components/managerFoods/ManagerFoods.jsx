@@ -3,10 +3,14 @@ import React, { useContext, useState, useEffect, useRef } from 'react';
 import './ManagerFoods.css'
 
 // Components
+import socketIOClient from "socket.io-client";
 import { Table, Input, Button, Popconfirm, Form } from 'antd';
 import { Switch } from 'react-router-dom';
 
 const EditableContext = React.createContext(null);
+
+const ENDPOINT = "http://127.0.0.1:4001";
+const socket = socketIOClient(ENDPOINT);
 
 const EditableRow = ({ index, ...props }) => {
   const [form] = Form.useForm();
@@ -97,7 +101,7 @@ class ManagerFoods extends React.Component {
     this.columns = [
       {
         title: 'نام غذا',
-        dataIndex: 'name',
+        dataIndex: 'food_name',
         width: '15%',
         editable: true,
       },
@@ -110,12 +114,14 @@ class ManagerFoods extends React.Component {
       {
         title: 'فعال/غیرفعال',
         width: '10%',
-        dataIndex: 'deactive',
+        dataIndex: 'disabled',
         render: (_, record) =>
           this.state.dataSource.length >= 1 ? (
-            <div onClick={{}}>
+            <Button onClick={
+              this.state.disabled === 0 ? 1 : 0
+            }>
               غیر فعال
-            </div>
+            </Button>
           ) : null,
       },
       {
@@ -142,16 +148,14 @@ class ManagerFoods extends React.Component {
     this.state = {
       dataSource: [
         {
-          key: '0',
-          name: 'کباب کوبیده',
+          // key: '0',
+          food_name: 'کباب کوبیده',
+          restaurant_name: '',
           price: '42000',
-          address: 'London, Park Lane no. 0',
-        },
-        {
-          key: '1',
-          name: 'سوسیس بندری',
-          price: '10000',
-          address: 'London, Park Lane no. 1',
+          restaurant_name: 'حلاج پلو',
+          copen_type: '5',
+          disabled: 0,
+          count: 1,
         },
       ],
       count: 2,
@@ -159,19 +163,24 @@ class ManagerFoods extends React.Component {
   }
 
 
-  submitFood = async (food) => {
-    try {
-      await fetch('sample', {
-        body: {},
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        }
-      }).then((response) => response.json()).then((data) => console.log(data)); // addfood API
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // submitFood = async (food) => {
+  //   try {
+  //     await fetch('sample', {
+  //       body: {},
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       }
+  //     }).then((response) => response.json()).then((data) => console.log(data)); // addfood API
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+  submitFood = (record) => {
+    socket.emit('add food', record);
+    console.log('food: ', record);
+  }
+   
 
 
 
@@ -186,9 +195,10 @@ class ManagerFoods extends React.Component {
     const { count, dataSource } = this.state;
     const newData = {
       key: count,
-      name: `نام غذا ${count}`,
+      food_name: `نام غذا ${count}`,
       price: '50000',
-      address: `London, Park Lane no. ${count}`,
+      restaurant_name: 'رستوران',
+      copen_type: '5',
     };
     this.setState({
       dataSource: [...dataSource, newData],

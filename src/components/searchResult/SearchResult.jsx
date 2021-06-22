@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import querystring from 'querystring';
 import { useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import socketIOClient, { io } from "socket.io-client";
 
@@ -20,8 +21,8 @@ export const SearchResult = () => {
 
       useEffect(() => {
             // getTemp()
-            socket.on("1234", data => {
-                  alert(data)
+            socket.on("get food from manager", data => {
+                  console.log("data: ", data);
             });
             // getFood()
       }, [])
@@ -68,6 +69,10 @@ export const SearchResult = () => {
             });
       };
 
+      const purchaseFood = async (food) => {
+
+      }
+
       return (
             <div style={{ minHeight: window.innerHeight }} className='search-result'>
                   <div class="products">
@@ -75,7 +80,9 @@ export const SearchResult = () => {
                               <img src={pizza} alt='pizza' />
                               <h2>{item}</h2>
                               <h2>رستوران</h2>
-                              <Button type='primary' shape='round' className='button-purchase'>خرید</Button>
+                              <Link to='/purchase-food'>
+                                    <Button type='primary' shape='round' className='button-purchase' onClick={{ purchaseFood }}>خرید</Button>
+                              </Link>
                         </div>)}
 
                   </div>
