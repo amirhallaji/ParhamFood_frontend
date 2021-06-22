@@ -42,3 +42,29 @@
       width: 400px;
 }
 
+
+@media screen and (max-width:800px) {
+      .register-fields-container {
+            width: 80%;
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+      }
+      .register-fields-left {
+            display: flex;
+            flex-flow: column wrap;
+            width: 80%;
+            margin: auto;
+            justify-content: center;
+            align-items: center;
+      }
+      .register-type-fields {
+            font-size: 10px;
+      }
+      .input-style {
+            width: 80%;
+      }
+}
+

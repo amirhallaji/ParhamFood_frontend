@@ -26,3 +26,9 @@
 #managerInfoHeaderRestaurantAddress {
       width: 25%;
 }
+
+@media screen  and(max-width:1140px){
+      #managerInfoHeaderName, #managerInfoHeaderEmail, #managerInfoHeaderRestaurant, #managerInfoHeaderHours, #managerInfoHeaderPrice {
+            
+      }
+}

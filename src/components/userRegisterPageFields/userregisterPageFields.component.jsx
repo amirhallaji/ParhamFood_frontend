@@ -8,32 +8,28 @@ const ENDPOINT = "http://127.0.0.1:4001";
 const socket = socketIOClient(ENDPOINT);
 
 export const UserRegisterPageFields = () => {
-      const [response, setResponse] = useState("");
-      const [message, setMessage] = useState("hello bitch!");
-      const [messages, setMessages] = useState("");
+      // const [response, setResponse] = useState("");
+      // const [message, setMessage] = useState("hello bitch!");
+      // const [messages, setMessages] = useState("");
 
-      useEffect(() => {
-            getMessages();
-      }, [messages.length]);
+      // useEffect(() => {
+      //       getMessages();
+      // }, [messages.length]);
 
-      const getMessages = () => {
-            socket.on("message", msg => {
-                  setMessages([...messages, msg]);
-                  setMessage(msg)
-                  console.log('message received in message')
-                  alert('message received in message')
-                  console.log(msg);
-                  alert(msg);
-            });
-      };
+      // const getMessages = () => {
+      //       socket.on("message", msg => {
+      //             setMessages([...messages, msg]);
+      //             setMessage(msg)
+      //             console.log('message received in message')
+      //             alert('message received in message')
+      //             console.log(msg);
+      //             alert(msg);
+      //       });
+      // };
 
       useEffect(() => {
             socket.on("test_client", data => {
-                  setResponse(data);
-                  console.log('message received in test_client')
-                  alert('message received in test_client')
-                  console.log(data);
-                  alert(data);
+                  alert(data)
             });
       }, []);
 
@@ -91,7 +87,7 @@ export const UserRegisterPageFields = () => {
                         <div className='register-fields-left'>
                               <div>
                                     <div className='register-type-fields'>آدرس</div>
-                                    <Input type="text" placeholder='اینجا وارد کنید' name="userAddress" onChange={(e) => {
+                                    <Input type="text" className='input-style' placeholder='اینجا وارد کنید' name="userAddress" onChange={(e) => {
                                           address = e.target.value;
                                           dict.address = address;
                                     }}></Input>
@@ -113,11 +109,6 @@ export const UserRegisterPageFields = () => {
                               <Button id="button_id_user" className='button-register' type="primary" shape="round" onClick={() => {
                                     var json = JSON.stringify(dict);
                                     socket.emit('create user', json);
-                                    // console.log('message is being sent...')
-                                    // alert('message is being sent...')
-                                    // socket.emit('test_server');
-                                    // console.log('message sent')
-                                    // alert('message sent')
                               }}
                               >ثبت نام</Button>
                         </Link>

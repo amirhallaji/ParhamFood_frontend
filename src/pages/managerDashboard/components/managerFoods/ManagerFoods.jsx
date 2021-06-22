@@ -4,6 +4,7 @@ import './ManagerFoods.css'
 
 // Components
 import { Table, Input, Button, Popconfirm, Form } from 'antd';
+import { Switch } from 'react-router-dom';
 
 const EditableContext = React.createContext(null);
 
@@ -11,7 +12,7 @@ const EditableRow = ({ index, ...props }) => {
   const [form] = Form.useForm();
   return (
     <Form form={form} component={false}>
-      <EditableContext.Provider  value={form}>
+      <EditableContext.Provider value={form}>
         <tr {...props} />
       </EditableContext.Provider>
     </Form>
@@ -91,6 +92,8 @@ const EditableCell = ({
 class ManagerFoods extends React.Component {
   constructor(props) {
     super(props);
+
+
     this.columns = [
       {
         title: 'نام غذا',
@@ -101,12 +104,12 @@ class ManagerFoods extends React.Component {
       {
         title: 'قیمت غذا',
         dataIndex: 'price',
-        width:'10%',
+        width: '10%',
         editable: true,
       },
       {
         title: 'فعال/غیرفعال',
-        width:'10%',
+        width: '10%',
         dataIndex: 'deactive',
         render: (_, record) =>
           this.state.dataSource.length >= 1 ? (
@@ -118,7 +121,7 @@ class ManagerFoods extends React.Component {
       {
         title: 'عملیات',
         dataIndex: 'operation',
-        width:'10%',
+        width: '10%',
         render: (_, record) =>
           this.state.dataSource.length >= 1 ? (
             <Popconfirm title="آیا از حذف غذا اطمینان دارید؟" onConfirm={() => this.handleDelete(record.key)}>
@@ -127,14 +130,12 @@ class ManagerFoods extends React.Component {
           ) : null,
       },
       {
-        title: 'مشاهده نظرات',
-        dataIndex: 'comments',
-        width:'10%',
+        title: 'ثبت غذا',
+        dataIndex: 'confirmFood',
+        width: '10%',
         render: (_, record) =>
           this.state.dataSource.length >= 1 ? (
-            <div onClick={() => {props.setIsCommentsVisible(true)}} style={{cursor:'pointer', color:'blue'} } >
-              مشاهده‌ی نظرات
-            </div>
+            <Button onClick={() => this.submitFood(record)}>ثبت غذا</Button>
           ) : null,
       },
     ];
@@ -142,7 +143,7 @@ class ManagerFoods extends React.Component {
       dataSource: [
         {
           key: '0',
-          name:  'کباب کوبیده',
+          name: 'کباب کوبیده',
           price: '42000',
           address: 'London, Park Lane no. 0',
         },
@@ -156,6 +157,23 @@ class ManagerFoods extends React.Component {
       count: 2,
     };
   }
+
+
+  submitFood = async (food) => {
+    try {
+      await fetch('sample', {
+        body: {},
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        }
+      }).then((response) => response.json()).then((data) => console.log(data)); // addfood API
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+
 
   handleDelete = (key) => {
     const dataSource = [...this.state.dataSource];
@@ -177,7 +195,7 @@ class ManagerFoods extends React.Component {
       count: count + 1,
     });
   };
-  
+
   handleSave = (row) => {
     const newData = [...this.state.dataSource];
     const index = newData.findIndex((item) => row.key === item.key);
@@ -189,6 +207,8 @@ class ManagerFoods extends React.Component {
   };
 
   render() {
+
+
     const { dataSource } = this.state;
     const components = {
       body: {
