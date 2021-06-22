@@ -150,7 +150,6 @@ class ManagerFoods extends React.Component {
         {
           // key: '0',
           food_name: 'کباب کوبیده',
-          restaurant_name: '',
           price: '42000',
           restaurant_name: 'حلاج پلو',
           copen_type: '5',
@@ -177,7 +176,8 @@ class ManagerFoods extends React.Component {
   //   }
   // };
   submitFood = (record) => {
-    socket.emit('add food', record);
+    let record_json = JSON.stringify(record)
+    socket.emit('add food', record_json);
     console.log('food: ', record);
   }
    
@@ -199,6 +199,8 @@ class ManagerFoods extends React.Component {
       price: '50000',
       restaurant_name: 'رستوران',
       copen_type: '5',
+      disabled: 0,
+      count: 1,
     };
     this.setState({
       dataSource: [...dataSource, newData],
@@ -268,3 +270,4 @@ class ManagerFoods extends React.Component {
 }
 
 export default ManagerFoods;
+
