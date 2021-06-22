@@ -12,6 +12,7 @@ import ManagerDashboard from './pages/managerDashboard/ManagerDashboard'
 import { SearchResult } from './components/searchResult/SearchResult';
 import { Comments } from './pages/managerDashboard/components/comments/Comments';
 import {EditProfile} from './pages/managerDashboard/components/editProfile/EditProfile';
+import {PurchaseFood} from './components/purchaseFood/PurchaseFood';
 
 class App extends Component {
   constructor() {
@@ -35,6 +36,7 @@ class App extends Component {
           <Route exact path='/search-result' component={SearchResult} />
           <Route exact path='/comments' component={Comments} />
           <Route exact path='/edit-profile' component={EditProfile} />
+          <Route exact path='/purchase-food' component={PurchaseFood} />
         </Switch>
       </div>
     )

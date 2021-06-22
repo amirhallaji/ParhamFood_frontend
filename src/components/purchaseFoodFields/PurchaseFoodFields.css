@@ -1,0 +1,14 @@
+#purchaseFoodContainer {
+      border: 1px solid brown;
+      background-color:azure;
+      width: 70%;
+      direction: rtl;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+}
+
+.purchaseFoodField {
+      width: 70%;
+}
