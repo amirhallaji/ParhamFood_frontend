@@ -4,6 +4,7 @@ import './ManagerFoods.css'
 
 // Components
 import { Table, Input, Button, Popconfirm, Form } from 'antd';
+import { Switch } from 'react-router-dom';
 
 const EditableContext = React.createContext(null);
 
@@ -11,7 +12,7 @@ const EditableRow = ({ index, ...props }) => {
   const [form] = Form.useForm();
   return (
     <Form form={form} component={false}>
-      <EditableContext.Provider  value={form}>
+      <EditableContext.Provider value={form}>
         <tr {...props} />
       </EditableContext.Provider>
     </Form>
@@ -101,12 +102,12 @@ class ManagerFoods extends React.Component {
       {
         title: 'قیمت غذا',
         dataIndex: 'price',
-        width:'10%',
+        width: '10%',
         editable: true,
       },
       {
         title: 'فعال/غیرفعال',
-        width:'10%',
+        width: '10%',
         dataIndex: 'deactive',
         render: (_, record) =>
           this.state.dataSource.length >= 1 ? (
@@ -118,7 +119,7 @@ class ManagerFoods extends React.Component {
       {
         title: 'عملیات',
         dataIndex: 'operation',
-        width:'10%',
+        width: '10%',
         render: (_, record) =>
           this.state.dataSource.length >= 1 ? (
             <Popconfirm title="آیا از حذف غذا اطمینان دارید؟" onConfirm={() => this.handleDelete(record.key)}>
@@ -129,12 +130,12 @@ class ManagerFoods extends React.Component {
       {
         title: 'مشاهده نظرات',
         dataIndex: 'comments',
-        width:'10%',
+        width: '10%',
         render: (_, record) =>
           this.state.dataSource.length >= 1 ? (
-            <div onClick={() => {props.setIsCommentsVisible(true)}} style={{cursor:'pointer', color:'blue'} } >
-              مشاهده‌ی نظرات
-            </div>
+            <Switch to='/comments'>
+            <Button>مشاهده نظرات</Button>
+            </Switch>
           ) : null,
       },
     ];
@@ -142,7 +143,7 @@ class ManagerFoods extends React.Component {
       dataSource: [
         {
           key: '0',
-          name:  'کباب کوبیده',
+          name: 'کباب کوبیده',
           price: '42000',
           address: 'London, Park Lane no. 0',
         },
@@ -177,7 +178,7 @@ class ManagerFoods extends React.Component {
       count: count + 1,
     });
   };
-  
+
   handleSave = (row) => {
     const newData = [...this.state.dataSource];
     const index = newData.findIndex((item) => row.key === item.key);
