@@ -1,14 +1,33 @@
 #purchaseFoodContainer {
       border: 1px solid brown;
-      background-color:azure;
-      width: 70%;
+      background-image: url('../../images/purchase.jpg');
+      width: 60%;
+      height: 60%;
       direction: rtl;
       display: flex;
-      justify-content: center;
       flex-direction: column;
       align-items: center;
+      justify-content: space-around;
+      
+      border-radius: 10px;
 }
 
 .purchaseFoodField {
       width: 70%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+}
+
+.purchaseFoodFieldImage {
+      width: 100px;
+}
+
+.purchaseFoodField {
+      background-color:brown;
+      width: 30%;
+      height: 50%;
+      border-radius: 10px;
+      padding: 10px;
 }
