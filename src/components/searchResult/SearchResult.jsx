@@ -23,8 +23,9 @@ export const SearchResult = () => {
             // getTemp()
             socket.on("get food from manager", data => {
                   console.log("data: ", data);
-                  var data_dict = JSON.parse(data)
-                  setFoods(data_dict)
+                  // var data_dict = JSON.parse(data)
+                  setFoods(data)
+                  console.log("foods", foods);
             });
             // getFood()
       }, [])
@@ -78,7 +79,7 @@ export const SearchResult = () => {
       return (
             <div style={{ minHeight: window.innerHeight }} className='search-result'>
                   <div className="products">
-                        {foods.map((item, key) => <div key={key} className='product'>
+                        {foods.map((item) => <div className='product'>
                               <img src={pizza} alt='pizza' />
                               <h2>{item.food_name}</h2>
                               <h2>رستوران</h2>
