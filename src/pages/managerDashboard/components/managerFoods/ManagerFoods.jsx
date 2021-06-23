@@ -147,17 +147,9 @@ class ManagerFoods extends React.Component {
     ];
     this.state = {
       dataSource: [
-        {
-          // key: '0',
-          food_name: 'کباب کوبیده',
-          price: '42000',
-          restaurant_name: 'حلاج پلو',
-          copen_type: '5',
-          disabled: 0,
-          count: 1,
-        },
+
       ],
-      count: 2,
+      count: 0,
     };
   }
 

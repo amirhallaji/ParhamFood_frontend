@@ -26,6 +26,7 @@ export const SearchResult = () => {
                   var data_dict = JSON.parse(data)
                   // setFoods(foods.concat(data_dict))
                   setFoods(foods => [...foods, data_dict])
+                  console.log("foods", foods);
 
             });
             // getFood()
@@ -73,9 +74,7 @@ export const SearchResult = () => {
       //       });
       // };
 
-      const purchaseFood = async (food) => {
 
-      }
 
       return (
             <div style={{ minHeight: window.innerHeight }} className='search-result'>
@@ -87,7 +86,10 @@ export const SearchResult = () => {
                                     <h2>رستوران</h2>
                                     <h3>{item.price}</h3>
                                     <Link to='/purchase-food'>
-                                          <Button type='primary' shape='round' className='button-purchase' onClick={{ purchaseFood }}>مشاهده بیشتر</Button>
+                                          <Button type='primary' shape='round' className='button-purchase' onClick={() => {
+                                                socket.emit('start status ctr');
+
+                                          }}>مشاهده بیشتر</Button>
                                     </Link>
                               </div>)
                         }

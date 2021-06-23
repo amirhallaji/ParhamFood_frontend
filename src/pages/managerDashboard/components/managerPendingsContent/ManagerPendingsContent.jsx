@@ -12,9 +12,9 @@ const ManagerPendingsContent = () => {
       }
 
       return <div id='managerPendingsContent'>
-            {[...Array(6)].map((item, index) => <div key={index} className="managerPendingsContentRow">
-                  <div>اصغر</div>
-                  <div>پاستا</div>
+            {[...Array(1)].map((item, index) => <div key={index} className="managerPendingsContentRow">
+                  <div>امیر حلاجی</div>
+                  <div>کباب کوبیده</div>
                   <div>
                   <Button type='primary' shape='round' onClick={submitOrder}>تایید</Button></div>
             </div> )}
