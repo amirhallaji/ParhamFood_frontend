@@ -24,7 +24,7 @@ export const SearchResult = () => {
             socket.on("get food from manager", data => {
                   console.log("data: ", data);
                   var data_dict = JSON.parse(data)
-                  setFoods(data_dict)
+                  setFoods(foods.concat(data_dict))
             });
             // getFood()
       }, [])
@@ -78,15 +78,17 @@ export const SearchResult = () => {
       return (
             <div style={{ minHeight: window.innerHeight }} className='search-result'>
                   <div className="products">
-                        {foods.map((item, key) => <div key={key} className='product'>
-                              <img src={pizza} alt='pizza' />
-                              <h2>{item.food_name}</h2>
-                              <h2>رستوران</h2>
-                              <h3>{item.price}</h3>
-                              <Link to='/purchase-food'>
-                                    <Button type='primary' shape='round' className='button-purchase' onClick={{ purchaseFood }}>مشاهده بیشتر</Button>
-                              </Link>
-                        </div>)}
+                        {
+                              foods.map((item, key) => <div key={key} className='product'>
+                                    <img src={pizza} alt='pizza' />
+                                    <h2>{item.food_name}</h2>
+                                    <h2>رستوران</h2>
+                                    <h3>{item.price}</h3>
+                                    <Link to='/purchase-food'>
+                                          <Button type='primary' shape='round' className='button-purchase' onClick={{ purchaseFood }}>مشاهده بیشتر</Button>
+                                    </Link>
+                              </div>)
+                        }
 
                   </div>
             </div>

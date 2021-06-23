@@ -4,32 +4,43 @@ import './../registerFields/registerFields.styles.css';
 import { Input, Button, message } from 'antd';
 import { Link } from 'react-router-dom';
 import socketIOClient from "socket.io-client";
+import { useHistory } from "react-router-dom";
+
 const ENDPOINT = "http://127.0.0.1:4001";
 const socket = socketIOClient(ENDPOINT);
 
+
 export const UserRegisterPageFields = () => {
-      // const [response, setResponse] = useState("");
-      // const [message, setMessage] = useState("hello bitch!");
-      // const [messages, setMessages] = useState("");
 
-      // useEffect(() => {
-      //       getMessages();
-      // }, [messages.length]);
-
-      // const getMessages = () => {
-      //       socket.on("message", msg => {
-      //             setMessages([...messages, msg]);
-      //             setMessage(msg)
-      //             console.log('message received in message')
-      //             alert('message received in message')
-      //             console.log(msg);
-      //             alert(msg);
-      //       });
-      // };
+      let history = useHistory();
 
       useEffect(() => {
-            socket.on("test_client", data => {
-                  alert(data)
+            socket.on("confirm password error", data => {
+                  alert("passwords doesn't match!")
+            });
+      }, []);
+
+      useEffect(() => {
+            socket.on("u bad password", data => {
+                  alert("password length must be greater than 8\n and also must contain letters and digits!")
+            });
+      }, []);
+
+      useEffect(() => {
+            socket.on("u user registered", data => {
+                  history.push('/')
+            });
+      }, []);
+
+      useEffect(() => {
+            socket.on("u rep", data => {
+                  alert("user with this phone number already exists!")
+            });
+      }, []);
+
+      useEffect(() => {
+            socket.on("u bad req", data => {
+                  alert("fill all of fields")
             });
       }, []);
 
@@ -45,7 +56,8 @@ export const UserRegisterPageFields = () => {
             password: null,
             name: null,
             region: null,
-            address: null
+            address: null,
+            confirm_password: null
       };
 
       return (
@@ -80,6 +92,7 @@ export const UserRegisterPageFields = () => {
                                     <div className='register-type-fields'>تأیید رمز عبور</div>
                                     <Input type="password" placeholder='confirm password' name="userConfirmPassword" onChange={(e) => {
                                           confirm_password = e.target.value;
+                                          dict.confirm_password = confirm_password;
                                     }}></Input>
                               </div>
                         </div>
@@ -105,13 +118,11 @@ export const UserRegisterPageFields = () => {
                   </div>
 
                   <div className='button-register-container'>
-                        <Link to='/'>
                               <Button id="button_id_user" className='button-register' type="primary" shape="round" onClick={() => {
                                     var json = JSON.stringify(dict);
                                     socket.emit('create user', json);
                               }}
                               >ثبت نام</Button>
-                        </Link>
                   </div>
             </div>
       )
