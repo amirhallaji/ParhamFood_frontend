@@ -4,6 +4,7 @@ import { Button, Modal, Input } from 'antd';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import socketIOClient from "socket.io-client";
+import { useHistory } from "react-router-dom";
 const ENDPOINT = "http://127.0.0.1:4001";
 const socket = socketIOClient(ENDPOINT);
 
@@ -14,8 +15,33 @@ let userNameShown = null;
 
 export const RegisterLogin = () => {
 
-      const [visible, setVisible] = useState(false);
+      let history = useHistory();
 
+      // let phone_number;
+      // let password;
+
+      var dict = {
+            phone_number: null,
+            password: null,
+      };
+
+      useEffect(() => {
+            socket.on("user found", data => {
+                  if (data === '1') {
+                        history.push('/')
+                  }
+                  else {
+                        if (data === '0') {
+                              alert("user not found!")
+                        }
+                        else {
+                              alert("password is wrong!")
+                        }
+                  }
+            });
+      }, []);
+
+      const [visible, setVisible] = useState(false);
 
       const [usernameVisible, setUsernameVisible] = useState(false);
 
@@ -29,11 +55,11 @@ export const RegisterLogin = () => {
             };
       })();
 
-      giveMeUserName()      
+      giveMeUserName()
       // giveMeUserName()      
 
 
-      
+
       var giveMeUserInformation = (function () {
             return function () {
                   if (!executed) {
@@ -44,7 +70,7 @@ export const RegisterLogin = () => {
             };
       })();
 
-      giveMeUserInformation()  
+      giveMeUserInformation()
 
       const [username, setUsername] = useState("");
 
@@ -61,11 +87,11 @@ export const RegisterLogin = () => {
       return (
             <div>
                   {username == '' ? (
-                  <Button type="primary" shape="round" className='register-button' onClick={() => { setVisible(true) }}> ورود/عضویت </Button> ):
-                  ( 
-                        <div>{username}</div>
-                  ) }
-                  <Modal className='modal' visible={visible} footer={null} onCancel={() => setVisible(false)}> 
+                        <Button type="primary" shape="round" className='register-button' onClick={() => { setVisible(true) }}> ورود/عضویت </Button>) :
+                        (
+                              <div>{username}</div>
+                        )}
+                  <Modal className='modal' visible={visible} footer={null} onCancel={() => setVisible(false)}>
 
 
                         <div className='modal-style'>
@@ -73,16 +99,25 @@ export const RegisterLogin = () => {
                                     پرهام فود
                               </div>
                               <div className='modal-style-field'>
-                                    <div style={{ direction: 'rtl', color: 'white' }}>شماره موبایل</div>
-                                    <Input type='tel' placeholder='+989384158428'></Input>
+                                    <div style={{ direction: 'rtl', color: 'white' }} >شماره موبایل</div>
+                                    <Input type='tel' placeholder='+989384158428' onChange={(e) => {
+                                          dict.phone_number = e.target.value;
+                                    }} ></Input>
                               </div>
                               <div className='modal-style-field'>
                                     <div style={{ direction: 'rtl', color: 'white' }}>رمز عبور</div>
-                                    <Input type='password' placeholder='password'></Input>
+                                    <Input type='password' placeholder='password' onChange={(e) => {
+                                          dict.password = e.target.value;
+                                    }}></Input>
                               </div>
                               <div className='modal-style-field'>
                                     <div className='modal-buttons'>
-                                          <Button type='primary' shape='round'>ورود</Button>
+                                          <Button type='primary' shape='round' onClick={(e) => {
+                                                var json = JSON.stringify(dict);
+                                                socket.emit('login user', json);
+                                                console.log(json)
+                                          }}>
+                                                ورود</Button>
                                     </div>
                               </div>
                               <div className='modal-style-field'>
