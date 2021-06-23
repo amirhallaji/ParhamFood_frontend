@@ -15,7 +15,7 @@ export const UserRegisterPageFields = () => {
       let history = useHistory();
 
       useEffect(() => {
-            socket.on("confirm password error", data => {
+            socket.on("u confirm password error", data => {
                   alert("passwords doesn't match!")
             });
       }, []);
@@ -27,7 +27,7 @@ export const UserRegisterPageFields = () => {
       }, []);
 
       useEffect(() => {
-            socket.on("u user registered", data => {
+            socket.on("user registered", data => {
                   history.push('/')
             });
       }, []);

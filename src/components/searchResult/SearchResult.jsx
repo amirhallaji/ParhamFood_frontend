@@ -22,6 +22,7 @@ export const SearchResult = () => {
       useEffect(() => {
             // getTemp()
             socket.on("get food from manager", data => {
+                  console.log('dsfdfdf')
                   console.log("data: ", data);
                   var data_dict = JSON.parse(data)
                   setFoods(foods.concat(data_dict))
