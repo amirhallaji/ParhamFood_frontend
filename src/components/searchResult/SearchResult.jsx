@@ -26,6 +26,7 @@ export const SearchResult = () => {
                   console.log("data: ", data);
                   var data_dict = JSON.parse(data)
                   setFoods(foods.concat(data_dict))
+
             });
             // getFood()
       }, [])
